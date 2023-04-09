@@ -47,6 +47,66 @@ class BinaryTree:
             # 수행합니다.
             else:
                 self._insert(value, current_node.left)
+        # 삽입할 값이 현재 노드의 값보다 큰 경우
+        elif value > current_node.value:
+            # 오른쪽 자식 노드가 없으면 새 노드를 오른쪽 자식 노드로 설정합니다.
+            if not current_node.right:
+                current_node.right = TreeNode(value)
+            # 오른쪽 자식 노드가 있는 경우, 오른쪽 자식 노드를 기준으로
+            # 재귀적으로 삽입을 수행합니다.
+            else:
+                self._insert(value, current_node.right)
+        else:
+            print("이미 존재하는 값입니다.")
+
+    # 전위 순회 메소드 : root -> left -> right
+    def preorder_traversal(self, start, traversal):
+        if start:
+            traversal += (str(start.value) + ' ')   # root 노드의 값을 추가
+            traversal = self.preorder_traversal(start.left, traversal)  # 왼쪽 서브트리 순회
+            traversal = self.preorder_traversal(start.right, traversal) # 오른쪽 서브트리 순회
+            print(traversal)
+        return traversal
+    
+    # 중위 순회 메소드: left -> root -> right
+    def inorder_traversal(self, start, traversal):
+        if start:
+            traversal = self.inorder_traversal(start.left, traversal) # 왼쪽 서브트리 순회
+            traversal += (str(start.value)+ ' ') # root 노드의 값을 추가
+            traversal = self.inorder_traversal(start.right, traversal) # 오른쪽 서브트리 순회
+        return traversal
+
+    # 후위 순회 메소드: left -> right -> root
+    def postorder_traversal(self, start, traversal):
+        if start:
+            traversal = self.preorder_traversal(start.left, traversal) # 왼쪽 서브트리 순회
+            traversal = self.preorder_traversal(start.right, traversal) # 오른쪽 서브트리 순회
+            traversal += (str(start.value) + ' ') # root 노드의 값을 추가
+        return traversal
+
+
+# 실행코드
+# 이진 트리 객체를 생성합니다. 루트 노드의 값은 5입니다.
+bt = BinaryTree(5)
+
+# 값을 삽입합니다.
+bt.insert(3)
+bt.insert(7)
+bt.insert(2)
+bt.insert(4)
+bt.insert(6)
+bt.insert(8)
+
+# 이진 트리를 전위 순회한 결과를 출력합니다.
+print("전위 순회: ", bt.preorder_traversal(bt.root, ""))
+
+# 이진 트리를 중위 순회한 결과를 출력합니다.
+print("중위 순회: ", bt.inorder_traversal(bt.root, ""))
+
+# 이진 트리를 후위 순회한 결과를 출력합니다.
+print("후위 순회: ", bt.postorder_traversal(bt.root, ""))
+
+
 
 
 
