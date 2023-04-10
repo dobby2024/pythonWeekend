@@ -63,13 +63,25 @@ class BinaryTree:
     def preorder_traversal(self, start, traversal):
         if start:
             traversal += (str(start.value) + ' ')   # root 노드의 값을 추가
+            print(traversal)
             traversal = self.preorder_traversal(start.left, traversal)  # 왼쪽 서브트리 순회
             traversal = self.preorder_traversal(start.right, traversal) # 오른쪽 서브트리 순회
-            print(traversal)
         return traversal
     
     # 중위 순회 메소드: left -> root -> right
     def inorder_traversal(self, start, traversal):
+        print(traversal)
+        '''
+           start.root : ""
+           start.3 : ""
+               start.2 : ""
+               start.2.left None : ""
+               start.2 : 2
+               start.2.right None : 2
+           start.3 : 2 3
+               start.4 : 2 3
+               start.4 : 2 3 4
+        '''
         if start:
             traversal = self.inorder_traversal(start.left, traversal) # 왼쪽 서브트리 순회
             traversal += (str(start.value)+ ' ') # root 노드의 값을 추가

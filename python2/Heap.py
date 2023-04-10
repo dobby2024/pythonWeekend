@@ -20,16 +20,17 @@ class MinHeap:
 
 # 실행코드
 heap = MinHeap()
-heap.push(3)
-heap.push(1)
-heap.push(4)
-heap.push(2)
+heap.push(ord('B'))
+heap.push(ord('E'))
+heap.push(ord('C'))
+heap.push(ord('A'))
 
-print(heap.pop())
-print(heap.pop())
-print(heap.pop())
-print(heap.pop())
+print(chr(heap.pop()))
+print(chr(heap.pop()))
+print(chr(heap.pop()))
+print(chr(heap.pop()))
 
+'''
 class MaxHeap:
     def __init__(self):
         self.heap = []
@@ -51,7 +52,7 @@ print(heap.pop())
 print(heap.pop())
 print(heap.pop())
 
-
+'''
 
 
 
