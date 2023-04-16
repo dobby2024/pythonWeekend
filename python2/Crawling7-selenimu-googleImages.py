@@ -63,9 +63,14 @@ def download_images(keyword, num_images=10, output_dir='images'):
             # 이미지 요소 대기 및 선택
             image = WebDriverWait(driver, 10).until(
                 EC.presence_of_element_located(
+                    # .r48jcc.pT0Scc.iPVvYb
                     (By.CSS_SELECTOR, ".r48jcc.pT0Scc.iPVvYb")
                 )
             )
+            '''
+            <img src="https://hips.hearstapps.com/hmg-prod/images/cute-cat-photos-1593441022.jpg?crop=1.00xw:0.753xh;0,0.153xh&amp;resize=1200:*" jsaction="VQAsE" class="r48jcc pT0Scc iPVvYb" style="max-width: 1200px; height: 209px; margin: 35.5px 0px; width: 415px;" alt="30 Cute Cat Photos — Best Photos of Cats" jsname="kn3ccd">
+            
+            '''
 
             # 이미지 URL 가져오기
             image_url = image.get_attribute("src")
@@ -88,7 +93,7 @@ def download_images(keyword, num_images=10, output_dir='images'):
     driver.quit()
 
 # 실행 코드
-keyword = "cute cat"
+keyword = "르세라핌"
 num_images = 10
 output_dir = "images"
 
