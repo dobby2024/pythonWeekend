@@ -3,7 +3,8 @@
 
 python.exe -m pip install --upgrade pip
 
-https://rigun.tistory.com/m/129
+https://osdn.net/projects/mingw/releases/
+
 '''
 
 import wordcloud
