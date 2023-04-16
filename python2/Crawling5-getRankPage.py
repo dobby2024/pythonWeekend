@@ -16,6 +16,7 @@ artist_list = soup.find_all('p', class_='artist')
 # I AM - IVE
 # print(artist_list[0].text.strip())
 for idx, title in enumerate(music_list):
+    print(idx+1, end=' ')
     print(title.text.strip(), end='-')
     print(artist_list[idx].find_all('a')[0].text.strip())
 
