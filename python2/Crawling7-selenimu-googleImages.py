@@ -92,6 +92,7 @@ def download_images(keyword, num_images=10, output_dir='images'):
     # 드라이버 종료
     driver.quit()
 
+
 # 실행 코드
 keyword = "르세라핌"
 num_images = 10
